@@ -48,3 +48,31 @@ WHERE lower(country) NOT IN ('usa', 'canada', 'mexico')
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+
+## 3. Register for the Party
+
+:scroll: Problem
+
+You received an invitation to an amazing party. Now you need to write an insert statement to add yourself to the table of participants.
+
+participants table schema
+
+name (string)
+age (integer)
+attending (boolean)
+NOTES:
+
+Since alcohol will be served, you can only attend if you are 21 or older
+You can't attend if the attending column returns anything but true
+
+:rocket: Solution
+  
+```sql
+INSERT INTO participants (name, age, attending) VALUES ('twkim', 31, true);
+--INSERT INTO participants VALUES ('twkim', 31, true); -> Can omit columns info when inserting all values for all columns in correct order
+SELECT * FROM participants
+```
+  
+---
+
+**[⬆ Back to Top](#practice-sql)**
