@@ -103,3 +103,25 @@ WHERE NOT tuition_received
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+
+## 4. Best-Selling Books
+
+:scroll: Problem
+
+You work at a book store. It's the end of the month, and you need to find out the 5 bestselling books at your store. Use a select statement to list names, authors, and number of copies sold of the 5 books which were sold most.
+
+books table schema
+
+name
+author
+copies_sold
+
+:rocket: Solution
+  
+```sql
+SELECT * FROM books ORDER BY copies_sold DESC LIMIT 5;
+```
+  
+---
+
+**[⬆ Back to Top](#practice-sql)**
