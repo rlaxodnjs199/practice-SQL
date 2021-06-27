@@ -201,7 +201,7 @@ The function should be called increment, it needs to take 1 integer and incremen
 ```sql
 CREATE FUNCTION increment(age integer) RETURNS integer AS $$
 BEGIN
-  RETURN age + 1
+  RETURN age + 1;
 END;
 $$ LANGUAGE plpgsql
 ```
