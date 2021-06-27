@@ -187,3 +187,25 @@ FROM numbers;
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+  
+## 7. Create a FUNCTION
+
+:scroll: Problem
+
+For this challenge you need to create a basic Increment function which Increments on the age field of the peoples table.
+
+The function should be called increment, it needs to take 1 integer and increment that number by 1.
+
+:rocket: Solution
+  
+```sql
+CREATE FUNCTION increment(age integer) RETURNS integer AS $$
+BEGIN
+  RETURN age + 1
+END;
+$$ LANGUAGE plpgsql
+```
+  
+---
+
+**[⬆ Back to Top](#practice-sql)**
