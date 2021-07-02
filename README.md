@@ -282,3 +282,19 @@ ORDER BY count(*) DESC;
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+
+## 10. SQL Basics: Simple FULL TEXT SEARCH
+
+:scroll: Problem
+For this challenge you need to create a simple SELECT statement. Your task is to create a query and do a FULL TEXT SEARCH. You must search the product table on the field name for the word Awesome and return each row with the given word. Your query MUST contain to_tsvector and to_tsquery PostgreSQL functions.
+
+:rocket: Solution
+  
+```sql
+SELECT * FROM products
+WHERE name ~ 'Awesome'
+```
+  
+---
+
+**[⬆ Back to Top](#practice-sql)**
