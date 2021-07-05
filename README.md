@@ -298,3 +298,22 @@ WHERE name ~ 'Awesome'
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+  
+## 11. SQL Statistics: MIN, MEDIAN, MAX
+
+:scroll: Problem
+For this challenge you need to create a simple SELECT statement. Your task is to calculate the MIN, MEDIAN and MAX scores of the students from the results table.
+
+:rocket: Solution
+  
+```sql
+SELECT
+  MIN(score) AS min,
+  percentile_cont(0.5) WITHIN GROUP (ORDER BY score) AS median, 
+  MAX(score)
+FROM result;
+```
+  
+---
+
+**[⬆ Back to Top](#practice-sql)**
