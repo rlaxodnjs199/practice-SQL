@@ -323,17 +323,20 @@ FROM result;
 :scroll: Problem
 Given film_actor and film tables from the DVD Rental sample database find all movies both Sidney Crowe (actor_id = 105) and Salma Nolte (actor_id = 122) cast in together and order the result set alphabetically.
 
+```
 film schema
  Column     | Type                        | Modifiers
 ------------+-----------------------------+----------
 title       | character varying(255)      | not null
 film_id     | smallint                    | not null
+
 film_actor schema
  Column     | Type                        | Modifiers
 ------------+-----------------------------+----------
 actor_id    | smallint                    | not null
 film_id     | smallint                    | not null
 last_update | timestamp without time zone | not null 
+
 actor schema
  Column     | Type                        | Modifiers
 ------------+-----------------------------+----------
@@ -348,6 +351,7 @@ title
 Film Title 1
 Film Title 2
 ...
+```
 
 :rocket: Solution
   
