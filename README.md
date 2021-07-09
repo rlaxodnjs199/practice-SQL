@@ -286,6 +286,7 @@ ORDER BY count(*) DESC;
 ## 10. SQL Basics: Simple FULL TEXT SEARCH
 
 :scroll: Problem
+  
 For this challenge you need to create a simple SELECT statement. Your task is to create a query and do a FULL TEXT SEARCH. You must search the product table on the field name for the word Awesome and return each row with the given word. Your query MUST contain to_tsvector and to_tsquery PostgreSQL functions.
 
 :rocket: Solution
@@ -302,6 +303,7 @@ WHERE name ~ 'Awesome'
 ## 11. SQL Statistics: MIN, MEDIAN, MAX
 
 :scroll: Problem
+  
 For this challenge you need to create a simple SELECT statement. Your task is to calculate the MIN, MEDIAN and MAX scores of the students from the results table.
 
 :rocket: Solution
@@ -321,6 +323,7 @@ FROM result;
 ## 12. Relational division: Find all movies two actors cast in together
 
 :scroll: Problem
+  
 Given film_actor and film tables from the DVD Rental sample database find all movies both Sidney Crowe (actor_id = 105) and Salma Nolte (actor_id = 122) cast in together and order the result set alphabetically.
 
 ```
@@ -380,6 +383,7 @@ ORDER BY f.title
 ## 13. Calculating Running Total
 
 :scroll: Problem
+  
 Description
 Given a posts table that contains a created_at timestamp column write a query that returns date (without time component), a number of posts for a given date and a running (cumulative) total number of posts up until a given date. The resulting set should be ordered chronologically by date.
 
@@ -417,6 +421,7 @@ ORDER BY date;
 ## 14. Calculating Month-Over-Month Percentage Growth Rate
 
 :scroll: Problem
+
 Given a posts table that contains a created_at timestamp column write a query that returns a first date of the month, a number of posts created in a given month and a month-over-month growth rate.
 
 The resulting set should be ordered chronologically by date.
