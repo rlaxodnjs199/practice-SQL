@@ -597,7 +597,7 @@ views - the number of post views
 post_id - post id
 ```
 :rocket: Solution
-  
+
 ```sql
 WITH temp AS (
   SELECT 
@@ -620,6 +620,47 @@ SELECT
 FROM temp
 WHERE rows_num <= 2
 ORDER BY category, views DESC, post_id;
+```
+---
+
+**[⬆ Back to Top](#practice-sql)**
+
+## 18. SQL Basics: Simple table totaling
+
+:scroll: Problem
+
+For this challenge you need to create a simple query to display each unique clan with their total points and ranked by their total points.
+
+people table schema
+```
+name
+points
+clan
+```                  
+You should then return a table that resembles below
+
+select on
+```
+rank
+clan
+total_points
+total_people
+```
+The query must rank each clan by their total_points, you must return each unqiue clan and if there is no clan name (i.e. it is an empty string) you must replace it with [no clan specified], you must sum the total_points for each clan and the total_people within that clan.
+
+##Note The data is loaded from the live leaderboard, this means values will change but also could cause the kata to time out retreiving the information.
+
+:rocket: Solution
+
+```sql
+SELECT
+  RANK() OVER (ORDER BY SUM(points) DESC),
+  COALESCE(NULLIF(clan, ''), '[no clan specified]') AS clan,
+  SUM(points) AS total_points,
+  COUNT(*) AS total_people
+FROM people
+GROUP BY clan
+ORDER BY total_points DESC;
 ```
 ---
 
