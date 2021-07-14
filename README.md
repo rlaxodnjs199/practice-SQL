@@ -678,6 +678,7 @@ id
 name
 ```
 sales table schema
+```
 id
 department_id (department foreign key)
 name
@@ -685,7 +686,7 @@ price
 card_name
 card_number
 transaction_date
-```
+```  
 resultant table schema
 ```
 id
