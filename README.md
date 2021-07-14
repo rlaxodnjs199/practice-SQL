@@ -748,7 +748,7 @@ SELECT
   card_number,
   transaction_date
 FROM eusales
-WHERE price > 50.00
+WHERE price > 50;
 ```
 ---
 
