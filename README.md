@@ -857,3 +857,38 @@ ORDER BY first_name, last_name;
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+
+## 23. SQL Data: Company Data - totals per day
+
+:scroll: Problem
+
+Your task is simple, given the data you must calculate on each day how many hours have been clocked up for each department.
+
+Tables and relationship below:
+![image](https://user-images.githubusercontent.com/26533193/126087371-7290c67a-e7b7-43db-8602-454c2baf3944.png)
+  
+Resultant table:
+```
+day (date) [order by]
+department_name (name of department) [order by]
+total_hours (total hours for the day)
+```
+
+:rocket: Solution
+
+```sql
+SELECT
+  data->>'first_name' AS first_name,
+  data->>'last_name' AS last_name,
+  EXTRACT(year FROM age(now(), (data->>'date_of_birth')::date))::integer AS age,
+  CASE
+    WHEN data->>'private' = 'true' THEN 'Hidden'
+    WHEN data->>'private' = 'false' AND data#>>'{email_addresses, 0}' IS NULL THEN 'None'
+    ELSE data#>>'{email_addresses, 0}'
+  END AS email_address
+FROM users
+ORDER BY first_name, last_name;
+```
+---
+
+**[⬆ Back to Top](#practice-sql)**
