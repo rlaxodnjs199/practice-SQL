@@ -878,16 +878,13 @@ total_hours (total hours for the day)
 
 ```sql
 SELECT
-  data->>'first_name' AS first_name,
-  data->>'last_name' AS last_name,
-  EXTRACT(year FROM age(now(), (data->>'date_of_birth')::date))::integer AS age,
-  CASE
-    WHEN data->>'private' = 'true' THEN 'Hidden'
-    WHEN data->>'private' = 'false' AND data#>>'{email_addresses, 0}' IS NULL THEN 'None'
-    ELSE data#>>'{email_addresses, 0}'
-  END AS email_address
-FROM users
-ORDER BY first_name, last_name;
+  login::DATE AS day,
+  name AS department_name,
+  SUM(EXTRACT(hour FROM AGE(logout, login))) AS total_hours
+FROM timesheet t
+INNER JOIN department d ON d.id = t.department_id
+GROUP BY day, department_name
+ORDER BY day, department_name;
 ```
 ---
 
