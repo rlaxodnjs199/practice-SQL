@@ -926,3 +926,38 @@ WHERE id IN (SELECT department_id FROM sales WHERE price > 98.00)
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+
+## 25. SQL Basics: Simple JOIN and RANK
+
+:scroll: Problem
+
+For this challenge you need to create a simple SELECT statement that will return all columns from the people table, and join to the sales table so that you can return the COUNT of all sales and RANK each person by their sale_count.
+
+people table schema
+```
+id
+name
+```
+sales table schema
+```
+id
+people_id
+sale
+price
+```
+You should return all people fields as well as the sale count as "sale_count" and the rank as "sale_rank".
+
+:rocket: Solution
+
+```sql
+SELECT
+  p.*,
+  COUNT(*) AS sale_count,
+  RANK() OVER (ORDER BY COUNT(*)) AS sale_rank
+FROM people p
+INNER JOIN sales s ON s.people_id = p.id
+GROUP BY p.id;
+```
+---
+
+**[⬆ Back to Top](#practice-sql)**
