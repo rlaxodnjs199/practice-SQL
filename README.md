@@ -961,3 +961,48 @@ GROUP BY p.id;
 ---
 
 **[⬆ Back to Top](#practice-sql)**
+  
+## 25. SQL Basics: Simple JOIN and RANK
+
+:scroll: Problem
+
+Oh no! Timmys been moved into the database divison of his software company but as we know Timmy loves making mistakes. Help Timmy keep his job by fixing his query...
+
+Timmy works for a statistical analysis company and has been given a task of calculating the highest average salary for a given job, the sample is compiled of 100 applicants each with a job and a salary. Timmy must display each unique job, the total average salary, the total people and the total salary and order by highest average salary. Timmy has some bugs in his query, help Timmy fix his query so he can keep his job!
+
+people table schema
+```
+id
+name
+```
+job table schema
+```
+id
+people_id
+job_title
+salary
+```
+resultant table schema
+```
+job_title (unique)
+average_salary (float, 2 dp)
+total_people (int)
+total_salary (float, 2 dp)
+```
+
+:rocket: Solution
+
+```sql
+SELECT
+  j.job_title,
+  ROUND(AVG(j.salary), 2)::float AS average_salary,
+  COUNT(*) AS total_people,
+  ROUND(SUM(j.salary), 2)::float AS total_salary
+FROM job j
+INNER JOIN people p on p.id = j.people_id
+GROUP BY j.job_title
+ORDER BY average_salary;
+```
+---
+
+**[⬆ Back to Top](#practice-sql)**
